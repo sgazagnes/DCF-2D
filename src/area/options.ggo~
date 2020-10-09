@@ -1,0 +1,32 @@
+package "Area"
+version "1.1"
+purpose "This program filters 2D images using distributed-memory parallel computation of max-trees"
+description "Input files are expected to be preprocessed into tiles of the form [inprefix][x].[intype], e.g. tile-1.pgm to tile-4.pgm for a 2x2 grid. For HDF5 files, the image should consist of one .h5 file of name  [inprefix].[intype]"
+Output files will be generated following the same grid with [outprefix][x].[outtype], e.g. out-1.pgm to out-4.pgm, except for HDF5 files where it will come as one output file [outprefix].[outtype]. In the pattern spectrum, the results will be written in a file called pattern.txt"
+
+section "Filename handling"
+text "These options select the prefix of the in- and output tiles, as well as the filetype"
+
+option "inprefix" i "Prefix of the filenames of input tiles" string optional default="tile-"
+option "outprefix" o "Prefix of the filenames for the output tiles" string optional default="out-"
+option "intype" - "filetype of the input tiles" string optional default="pgm"
+option "outtype" - "filetype of the output tiles" string optional
+option "dataset" d "Name of the dataset if using HDF5 files" string optional 
+
+section "Tiles"
+text "The --grid (-g) option takes a two comma separated which controls the number of expected horizontal and vertical tiles"
+
+option "grid" g "Number of tiles horizontally and vertically, comma separated" int multiple(2) required
+
+section "Image options"
+
+option "bitsperpixel" b "Define the dynamic range (mainly for HDF5)" int optional default="8"
+
+section "Filter options"
+
+option "filter" f "Choose the used filter" values="area","none" optional default="area"
+option "lambda" l "Lambda value" long optional default="100"
+
+
+section "Other options"
+option "verbosity" v "Add verbose output" values="OFF","off","ERROR","error","WARN","warn","INFO","info","DEBUG","debug","TRACE","trace","ALL","all" optional default="WARN"

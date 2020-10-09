@@ -1,0 +1,19 @@
+#ifndef IMAGE_H
+#define IMAGE_H
+
+#include <FreeImage.h>
+#include "cmdline.h"
+#include "types.h"
+
+FIBITMAP* GenericLoader(const char* lpszPathName, int flag);
+value *ReadImage( struct gengetopt_args_info args, size_t* width, size_t* height, short* bitsperpixel);
+value *ReadFITS(char *fname,  size_t *width, size_t *height, short *bitsperpixel, size_t grid_w, size_t grid_h);
+value *ReadHDF5(const char *fname, const char *dataset, size_t *width, size_t *height, size_t grid_w, size_t grid_h);
+value *ReadBasic(const char *fnm, size_t *width, size_t *height, short *bitsperpixel);
+void WriteImage(struct gengetopt_args_info args, value *img, short bitsperpixel, size_t width, size_t height);
+void WriteDAP( struct gengetopt_args_info args, value *out, value *outDH, value *outScale, short bitsperpixel, size_t width, size_t height);
+void WriteBasic(const char *fname_out, value *im, short bitspp, size_t width, size_t height);
+void WriteHDF5(const char *fname_in, const char* fname_out, const  char* dataset_in, const char *dataset_out, value *out,  size_t grid_w, size_t grid_h);
+void WriteFITS(char *fnameout, char *fnamein, value *out,  size_t grid_w, size_t grid_h);
+
+#endif

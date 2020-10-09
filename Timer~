@@ -1,0 +1,30 @@
+#!/bin/bash
+
+
+echo "Timer for clusters" | tee timer-area.txt timer-dap.txt timer-pattern.txt
+repet=3
+imax=6
+i=0
+gridw=(1 2 2 4 4 4 8)
+gridh=(1 1 2 2 4 8 8)
+timerarea=0
+timerdap=0
+timerpattern=0
+lambda=$RANDOM
+echo -e "Lambda is $lambda" >> timer-area.txt
+
+while [ $i -le $imax ]
+do
+      convert -crop ${gridw[$i]}\x${gridh[$i]}@ ../eso_andro.tif tile-%d.tif
+      numproc=$((gridw[$i] * gridh[$i]))
+      echo -e "Grid ${gridw[$i]}x${gridh[$i]}, numproc is $numproc" | tee -a timer-area.txt timer-dap.txt timer-pattern.txt
+      counter=1
+      while [ $counter -le $repet ]
+      do
+	  mpirun -np $numproc area -g ${gridw[$i]},${gridh[$i]} -l $lambda >> timer-area.txt
+	  mpirun -np $numproc dap -g ${gridw[$i]},${gridh[$i]} >> timer-dap.txt
+	  mpirun -np $numproc pattern -g ${gridw[$i]},${gridh[$i]} >> timer-pattern.txt
+	  ((counter++))
+      done
+      ((i++))
+done

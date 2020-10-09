@@ -1,0 +1,28 @@
+#ifndef QUEUE_H
+#define QUEUE_H
+#include "types.h"
+
+#define queue_first(hq,h)    (hq[h].pixels[hq[h].head++]) // dequeue
+#define queue_add(hq,h,p)    (hq[h].pixels[hq[h].tail++] = p)
+#define queue_is_not_empty(hq,h) (hq[h].head != hq[h].tail)
+#define IsEmptyStack(stack)        ((stack->curpos)==stack->maxsize)
+#define IsFullStack(stack)         ( stack->curpos == 0 )
+#define IsEmpty(queue)             ((queue->size)==0)
+#define IsFull(queue)              ( queue->size == queue->maxsize )
+#define pStackTop(stack)       ( stack->stack[stack->curpos + 1])
+#define pStackPop(stack)       (stack->stack[++stack->curpos])
+#define pStackPush(stack,elem)      (stack->stack[stack->curpos--]=elem)
+#define pQueueFront(queue)       (queue->queue[1])
+
+Queue *create_queue(size_t imgsize, unsigned long maxvalue);
+void set_queue_offsets(Queue *hq, unsigned long *numpixelsperlevel, unsigned long maxvalue); // set offsets
+void free_queue(Queue *hq);
+pStack *pStackCreate(long maxsize, long *stackArray);
+void pStackDelete(pStack *oldstack);
+pQueue *pQueueCreate(long maxsize);
+void pQueueDelete(pQueue *oldqueue);
+int pQueuePop(pQueue *queue, ushort *priority);
+void pQueuePush(pQueue *queue, ushort *priority, long pixpos);
+void pQueuePush(pQueue *queue, ushort *priority, long pixpos);
+
+#endif
