@@ -97,15 +97,19 @@ There is a verbosity option to display some information while the program is run
 
 ## Scaling performance
 On a 1.4 by 1.4 Gpixels 8-bit grayscale image of Haiti, decreasing image size: 
+
 <img src="https://github.com/sgazagnes/myimages/blob/main/haitispeedup.png" width="250" />
 
 On a Haiti 16-bit data set constant tile size, increasing image size:
+
 <img src="https://github.com/sgazagnes/myimages/blob/main/Haiti16exp.png" width="250" />
 
 On a Napoli 8 by 8 Gpixels 16-bit data, decreasing image size: 
+
 <img src="https://github.com/sgazagnes/myimages/blob/main/napoli.png" width="250" />
 
 Memory Usage on  CPU 0:
+
 <img src="https://github.com/sgazagnes/myimages/blob/main/memusage.png" width="250" />
 
 
