@@ -97,7 +97,7 @@ There is a verbosity option to display some information while the program is run
 
 ## Scaling performance
 Reference-style: 
-![alt text][Haiti8Speed.pdf]
+![alt text][haitispeed.png]
 
 ## Version
 
