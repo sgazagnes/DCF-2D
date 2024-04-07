@@ -96,8 +96,14 @@ There is a verbosity option to display some information while the program is run
 							"all": Equivalent to debug
 
 ## Scaling performance
-Reference-style: 
-![haiti](https://github.com/sgazagnes/DCF-2D/blob/main/haitispeedup.png)
+On a 1.4 by 1.4 Gpixels 8-bit grayscale image of Haiti, decreasing image size: ![haiti8](https://github.com/sgazagnes/myimages/blob/main/haitispeedup.png = 250x250)
+
+On a Haiti 16-bit data set constant tile size, increasing image size: ![haiti16](https://github.com/sgazagnes/myimages/blob/main/Haiti16exp.png = 250x250)
+
+On a Napoli 8 by 8 Gpixels 16-bit data, decreasing image size: ![napoli](https://github.com/sgazagnes/myimages/blob/main/napoli.png = 250x250)
+
+Memory Usage on  CPU 0: ![memeusage](https://github.com/sgazagnes/myimages/blob/main/memusage.png = 250x250)
+
 
 ## Version
 
