@@ -97,7 +97,7 @@ There is a verbosity option to display some information while the program is run
 
 ## Scaling performance
 Reference-style: 
-![alt text][haitispeed.png]
+![haiti](https://github.com/sgazagnes/DCF-2D/blob/main/haitispeedup.png)
 
 ## Version
 
